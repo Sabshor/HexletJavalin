@@ -16,7 +16,15 @@ public class HelloWorld {
             var name = ctx.queryParamAsClass("name", String.class).getOrDefault("World");
             ctx.result(String.format("Hello, %s!", name));
         });
+        // динамические адреса
+        app.get("users/{id}/post/{postId}", ctx -> {
+            var userId = ctx.pathParam("id");
+            var postId =  ctx.pathParam("postId");
+            ctx.result("User ID: " + userId + " Post ID: " + postId);
+        });
+
         app.post("/users", ctx -> ctx.result("POST /users"));
+
         
         app.start(7070); // Стартуем веб-сервер
 
