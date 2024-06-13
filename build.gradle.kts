@@ -18,10 +18,18 @@ application {
 }
 
 dependencies {
+    compileOnly("org.projectlombok:lombok:1.18.32")
+    annotationProcessor("org.projectlombok:lombok:1.18.32")
+
     implementation("io.javalin:javalin:6.1.3")
     implementation("org.slf4j:slf4j-simple:2.0.7")
+    // Шаблонизатор и его интеграция с Javalin
     implementation("io.javalin:javalin-rendering:6.1.3")
+    // Шаблонизатор Java Template Engine
     implementation("gg.jte:jte:3.1.9")
+
+    implementation("net.datafaker:datafaker:2.0.1")
+
     testImplementation(platform("org.junit:junit-bom:5.9.1"))
     testImplementation("org.junit.jupiter:junit-jupiter")
 }
